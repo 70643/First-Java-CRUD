@@ -35,7 +35,7 @@ public class MainView extends VerticalLayout {
 		add(actions, grid, editor);
 
 		grid.setHeight("300px");
-		grid.setColumns("id", "firstName", "lastName");
+		grid.setColumns("id", "firstName", "lastName", "email");
 		grid.getColumnByKey("id").setWidth("50px").setFlexGrow(0);
 
 		filter.setPlaceholder("Filter by last name");
@@ -51,8 +51,8 @@ public class MainView extends VerticalLayout {
 			editor.editCustomer(e.getValue());
 		});
 
-		// Instantiate and edit new Customer the new button is clicked
-		addNewBtn.addClickListener(e -> editor.editCustomer(new Customer("", "")));
+		// Instantiate and edit new Customer when the new button is clicked
+		addNewBtn.addClickListener(e -> editor.editCustomer(new Customer("", "", "")));
 
 		// Listen changes made by the editor, refresh data from backend
 		editor.setChangeHandler(() -> {
